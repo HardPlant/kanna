@@ -1,0 +1,22 @@
+{
+    "#1": [
+        {
+            "chara": "Kanna",
+            "dialog": "I like to eat!"
+        },
+        {
+            "chara": "Mirai",
+            "dialog": "Oh, Seriously?"
+        }
+    ],
+    "#2": [
+        {
+            "chara": "Kanna",
+            "dialog": "I like to play!"
+        },
+        {
+            "chara": "Mirai",
+            "dialog": "Me, too!"
+        }
+    ]
+}
