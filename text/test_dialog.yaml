@@ -1,21 +1,37 @@
 A001:
   0: 
-    Kanna: "I like to eat!"
+    Image: "/"
+    Name: "Kanna"
+    Dialog: "I like to eat!"
   1:
-    Mirai: "Oh, Seriously?"
+    Image: "/"
+    Name: "Mirai"
+    Dialog: "Oh, Seriously?"
 
 A002:
   0:
-    Kanna: "I like to play!"
+    Image: "/"
+    Name: "Kanna"
+    Dialog: "I like to play!"
   1:
-    Mirai: "Me, too!"
+    Image: "/"
+    Name: "Mirai"
+    Dialog: "Me, too!"
 
 A003:
   0:
-    Kanna: "Hello, Mirai!"
+    Image: "/"
+    Name: "Kanna"
+    Dialog: "Hello, Mirai!"
   1:
-    Mirai: "Hello, Kanna!"
+    Image: "/"
+    Name: "Mirai"
+    Dialog: "Hello, Kanna!"
   2:
-    Kanna: "I like to play!"
+    Image: "/"
+    Name: "Kanna"
+    Dialog: "I like to play!"
   3:
-    Mirai: "Me, too!"
+    Image: "/"
+    Name: "Mirai"
+    Dialog: "Me, too!"
