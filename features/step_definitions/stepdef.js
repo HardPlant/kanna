@@ -1,8 +1,9 @@
 const assert = require('assert');
 const { Given, When, Then } = require('cucumber');
-const textloader = require('./textloader.js');
+const textloader = require('../../textloader');
 const yaml = require('js-yaml');
 const fs   = require('fs');
+const path = require('path');
 /*
 Given("()", ()=>{
 
@@ -15,26 +16,41 @@ Then("", ()=>{
 });
 */
 var doc;
+var fileName;
+Given("{string} 텍스트 파일이 주어진다", function (fileName) {
 
-Given("{string} 텍스트 파일이 주어진다", (fileName, option)=> {
-    try {
-        doc = yaml.safeLoad(fs.readFileSync(`text/${fileName}.yaml`, 'utf8'));
+    assert(fs.existsSync(`text/${fileName}.yaml`));
+    assert(yaml);
 
-        assert(typeof(doc) !== "undefined");
+    file = fs.readFileSync(`text/${fileName}.yaml`, 'utf8');
+    
+    assert(file);
 
-    } catch (e) {
+    doc = yaml.load(file);
+    fileName = fileName;
 
-    }
+    assert.strictEqual(doc["A001"]["Kanna"], "I like to eat!");
+    
+    return doc;
 });
 
-When("id: {string}를 매개변수로 loadText 호출하면", (id)=> {
-    json = textloader.loadText(doc, id);
+When("id {string}를 매개변수로 loadText 호출하면", (id)=> {
+    console.log(textloader)
+    loader = textloader.textLoader(doc);
+    
+    assert(loader);
+    console.log(loader);
 
-    assert(typeof(json) !== "undefined");
+    json = loader.loadText(id);
+
+    assert(json);
 });
 
-Then("json 파일이 생성된다", ()=> {
-    exists = os.path
+Then("{string} json 파일이 생성된다", (fileName)=> {
+    exists = fs.existsSync(`json/${fileName}.yaml`);
+    
+    file = fs.readFileSync(`text/${fileName}.json`, 'utf8');
 
     assert(exists === true);
+    assert.equal(doc, file);
 });
