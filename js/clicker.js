@@ -1,4 +1,4 @@
-clicker = {
+var clicker = {
     character: undefined,
     addProperty: undefined,
     delta: undefined,
@@ -9,13 +9,18 @@ clicker = {
         this.property = property;
         this.delta = delta;
         this.clickDelta = clickDelta;
+        
+        return this;
     },
 
     click: function() {
-        character[property] += clickDelta;
+        this.character[this.property] += this.clickDelta;
+    },
+    getCurrentStat: function() {
+        return this.character[this.property];
     },
     update: function() {
-        character[property] += delta;
+        this.character[this.property] += this.delta;
     },
 
     updateDelta: function(delta) {
@@ -26,6 +31,3 @@ clicker = {
         this.clickDelta = clickDelta;
     }
 }
-
-module.exports = clicker
-
