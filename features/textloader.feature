@@ -14,5 +14,6 @@ Feature: yaml=>json 변환
       |fileName     |id   |
       |"test_dialog"|"A001" |
       |"test_dialog"|"A002" |
+      |"test_dialog"|"A003" |
 
 

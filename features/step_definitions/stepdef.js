@@ -28,8 +28,6 @@ Given("{string} 텍스트 파일이 주어진다", function (fileName) {
 
     doc = yaml.load(file);
     fileName = fileName;
-
-    assert.strictEqual(doc["A001"]["Kanna"], "I like to eat!");
     
     return doc;
 });

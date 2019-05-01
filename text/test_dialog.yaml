@@ -1,7 +1,21 @@
 A001:
-  Kanna: "I like to eat!"
-  Mirai: "Oh, Seriously?"
+  0: 
+    Kanna: "I like to eat!"
+  1:
+    Mirai: "Oh, Seriously?"
 
 A002:
-  Kanna: "I like to play!"
-  Mirai: "Me, too!"
+  0:
+    Kanna: "I like to play!"
+  1:
+    Mirai: "Me, too!"
+
+A003:
+  0:
+    Kanna: "Hello, Mirai!"
+  1:
+    Mirai: "Hello, Kanna!"
+  2:
+    Kanna: "I like to play!"
+  3:
+    Mirai: "Me, too!"
