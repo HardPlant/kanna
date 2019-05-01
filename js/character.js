@@ -1,12 +1,38 @@
-var character = {
+var baseCharacter = {
     name: null,
-    sprite: null
+    hp: null,
+    sprite: null,
+    getBase: function () {
+        return JSON.parse(JSON.stringify(this));
+    },
+    getDamage: null
 }
 
 function kanna() {
-    baseData = JSON.parse(JSON.stringify(character));
-    baseData.name = "kanna";
-    baseData.act = 1;
+    var character = baseCharacter.getBase();
+    character.name = "kanna";
+    character.act = 1;
 
-    return baseData;
+    return character;
+
+}
+
+function attack(character, property, target) {
+    var exists = 
+        character.getDamage
+        && target.hp;
+    
+    if (!exists) {
+        return;
+    }
+
+    target.hp -= character.getDamage(property);
+}
+
+function testFoe() {
+    var character = baseCharacter.getBase();
+    
+    character.hp = 100;
+
+    return character;
 }
