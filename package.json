@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "cucumber": "^5.1.0",
-    "jasmine": "^3.4.0"
+    "jasmine": "^3.4.0",
+    "js-yaml": "^3.13.1"
   }
 }

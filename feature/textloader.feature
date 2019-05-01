@@ -1,4 +1,4 @@
-Feature: txt=>json 변환
+Feature: yaml=>json 변환
 
    Scenario: 텍스트 변환
       Given "" 텍스트 파일이 주어진다
