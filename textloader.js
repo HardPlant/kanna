@@ -5,7 +5,6 @@ textLoader = {
 
     textLoader : function(file) {
         context = file;
-        console.log(context);
     
         return this;
     },

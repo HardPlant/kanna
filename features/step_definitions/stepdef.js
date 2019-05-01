@@ -35,11 +35,14 @@ Given("{string} 텍스트 파일이 주어진다", function (fileName) {
 });
 
 When("id {string}를 매개변수로 loadText 호출하면", (id)=> {
-    console.log(textloader)
+    try{
+        fs.unlinkSync(`json/${id}.json`);
+    } catch (e) {
+    }
+
     loader = textloader.textLoader(doc);
     
     assert(loader);
-    console.log(loader);
 
     json = loader.loadText(id);
 
@@ -47,10 +50,10 @@ When("id {string}를 매개변수로 loadText 호출하면", (id)=> {
 });
 
 Then("{string} json 파일이 생성된다", (fileName)=> {
-    exists = fs.existsSync(`json/${fileName}.yaml`);
+    exists = fs.existsSync(`json/${fileName}.json`);
     
-    file = fs.readFileSync(`text/${fileName}.json`, 'utf8');
+    file = fs.readFileSync(`json/${fileName}.json`, 'utf8');
 
     assert(exists === true);
-    assert.equal(doc, file);
+    assert.deepEqual(doc[fileName], JSON.parse(file));
 });
