@@ -20,12 +20,21 @@ Given("{string} 텍스트 파일이 주어진다", (fileName, option)=> {
     try {
         doc = yaml.safeLoad(fs.readFileSync(`text/${fileName}.yaml`, 'utf8'));
 
-        return doc;
+        assert(typeof(doc) !== "undefined");
+
     } catch (e) {
 
     }
 });
 
-When("loadText를 호출하면", ()=> {
-    textloader.loadText()
+When("id: {string}를 매개변수로 loadText 호출하면", (id)=> {
+    json = textloader.loadText(doc, id);
+
+    assert(typeof(json) !== "undefined");
+});
+
+Then("json 파일이 생성된다", ()=> {
+    exists = os.path
+
+    assert(exists === true);
 });
