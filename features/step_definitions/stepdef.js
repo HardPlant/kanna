@@ -1,6 +1,6 @@
 const assert = require('assert');
 const { Given, When, Then } = require('cucumber');
-const textloader = require('../../textloader');
+const textloader = require('../../js/textloader');
 const yaml = require('js-yaml');
 const fs   = require('fs');
 const path = require('path');
