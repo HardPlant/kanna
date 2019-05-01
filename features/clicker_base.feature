@@ -17,12 +17,5 @@ Feature: 클릭 시 스탯 상승
         
         Then 연기력 스탯이 3델타만큼 상승한다
 
-# Feature: 일정 주기로 부스트 출현
-
-    # Scenario: ""분 마다 부스트 출현
-    #     Given 
-    #     And Start to type your And step here
-    #     And 
-    #     When
 
 
