@@ -4,65 +4,139 @@ Title: &Title
   type: title
 
 Monolog: &Monolog
-  name: "P"
-  image: "assets/kanna/normal.png"
+  name: P
+  image: assets/kanna/normal.png
 
 Kanna_Normal: &Kanna_Normal
-  name: "카나"
-  image: "assets/kanna/normal.png"
+  name: 카나
+  image: assets/kanna/normal.png
 
 Shiho_Normal: &Shiho_Normal
-  name: "시호"
-  image: "assets/shiho/normal.png"
+  name: 시호
+  image: assets/shiho/normal.png
 
 Mirai_Normal: &Mirai_Normal
-  name: "미라이"
-  image: "assets/mirai/normal.png"
+  name: 미라이
+  image: assets/mirai/normal.png
 
 Minako_Normal: &Minako_Normal
-  name: "미나코"
-  image: "assets/minako/normal.png"
+  name: 미나코
+  image: assets/minako/normal.png
 
 Hibiki_Normal: &Hibiki_Normal
-  name: "히비키"
-  image: "assets/hibiki/normal.png"
+  name: 히비키
+  image: assets/hibiki/normal.png
 
 Serika_Normal: &Serika_Normal
-  name: "히비키"
-  image: "assets/serika/normal.png"
+  name: 히비키
+  image: assets/serika/normal.png
 
 JoyRotas_Normal: &JoyRotas_Normal
-  name: "조이 로타스"
-  image: "assets/joyrotas/normal.png"
+  name: 조이 로타스
+  image: assets/joyrotas/normal.png
 
 Takagi_Normal: &Takagi_Normal
-  name: "타카기"
-  image: "assets/takagi/normal.png"
+  name: 타카기
+  image: assets/takagi/normal.png
+
+Kotori_Normal: &Kotori_Normal
+  name: 타카기
+  image: assets/kotori/normal.png
 
 ##### Script
 
 Intro:
   0: 
     <<: *Title
-    dialog: ""
+    dialog: 영화 데뷔~♪ 
   1:
     <<: *Monolog
-    dialog: "2"
+    dialog: 
   2:
   3:
 
 Stage1:
   0:
+    <<: *Title
+    dialog: 외계인 침공!
   1:
+    <<: *Monolog
+    dialog: 서기 2xxx년
+    background: asset/
   2:
-  3:
-  4:
+    <<: *Monolog
+    dialog: 인류는
+
+Stage1_lesson:
+  01:
+    <<: *Serika_Normal
+    dialog: 
+
 Stage2:
+  0:
+    <<: *Title
+    dialog: 외계인 침공!
+  1:
+    <<: *Kanna_Normal
+    dialog: 
+  2:
+    <<: *Kanna_Normal
+    dialog: 
+  3:
+    <<: *Kanna_Normal
+    dialog: 
+  4:
+    <<: *Kanna_Normal
+    dialog: 
 
 Stage3:
+  0:
+    <<: *Title
+    dialog: 외계인 침공!
+  1:
+    <<: *Kanna_Normal
+    dialog: 
+  2:
+    <<: *Kanna_Normal
+    dialog: 
+  3:
+    <<: *Kanna_Normal
+    dialog: 
+  4:
+    <<: *Kanna_Normal
+    dialog: 
 
 Stage4:
+  0:
+    <<: *Title
+    dialog: 
+  1:
+    <<: *Kanna_Normal
+    dialog: 
+  2:
+    <<: *Kanna_Normal
+    dialog: 
+  3:
+    <<: *Kanna_Normal
+    dialog: 
+  4:
+    <<: *Kanna_Normal
+    dialog: 
 
-Stage5:
-
-Stage6:
+Epilog:
+  0:
+    <<: *Title
+    dialog: 
+  1:
+    <<: *Kanna_Normal
+    dialog: 
+  2:
+    <<: *Kanna_Normal
+    dialog: 
+  3:
+    <<: *Kanna_Normal
+    dialog: 
+  4:
+    <<: *Kanna_Normal
+    dialog: 
+  
