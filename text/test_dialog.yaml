@@ -1,3 +1,10 @@
+
+Kanna_Normal: &Kanna_Normal
+  Image: "assets/kanna/normal.png"
+
+Mirai_Normal: &Mirai_Normal
+  Image: "assets/mirai/normal.png"
+
 A001:
   0: 
     Image: "/"
@@ -19,19 +26,20 @@ A002:
     Dialog: "Me, too!"
 
 A003:
-  0:
-    Image: "/"
+  0: 
+    <<: *Kanna_Normal
     Name: "Kanna"
     Dialog: "Hello, Mirai!"
   1:
-    Image: "/"
+    <<: *Mirai_Normal
     Name: "Mirai"
     Dialog: "Hello, Kanna!"
   2:
-    Image: "/"
+    <<: *Kanna_Normal
     Name: "Kanna"
     Dialog: "I like to play!"
   3:
-    Image: "/"
+    <<: *Mirai_Normal
     Name: "Mirai"
     Dialog: "Me, too!"
+
