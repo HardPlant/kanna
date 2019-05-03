@@ -58,14 +58,17 @@ Intro:
 Stage1:
   0:
     <<: *Title
-    dialog: 외계인 침공!
+    dialog: 외계인 침공! 조금 무서울카나~♪
   1:
     <<: *Monolog
     dialog: 서기 2xxx년
-    background: asset/
+    background: asset/background/space_1.png
   2:
     <<: *Monolog
-    dialog: 인류는
+    dialog: 모치즈키 박사의 초광속 항해 연구가 결실을 맺어, 인류는 머나먼 우주에 발을 들일 수 있게 되었다.
+  3:
+    <<: *Monolog
+    dialog: 모치즈키 박사의 초광속 항해 연구가 결실을 맺어, 인류는 머나먼 우주에 발을 들일 수 있게 되었다.
 
 Stage1_lesson:
   01:

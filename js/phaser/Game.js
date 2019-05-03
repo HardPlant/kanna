@@ -6,9 +6,9 @@ var config = {
         default: 'arcade',
         arcade: {
             gravity: { y: 200 }
-        }
+        },
     },
-    scene: [BootScene]
+    scene: [Preload, BootScene]
 };
 
 var game = new Phaser.Game(config);
