@@ -23,6 +23,6 @@ var clicker = {
         this.delta += delta;
     },
     getClickDelta: function(){
-        return delta * 60;
+        return this.delta * 60;
     }
 }
