@@ -57,9 +57,8 @@ function initClicker() {
 
     var property = clickerValue.property;
     var delta  = clickerValue.delta;
-    var clickDelta = clickerValue.clickDelta;
 
-    clicker = clicker.clicker(kanna, property, delta, clickDelta);
+    clicker = clicker.clicker(kanna, property, delta);
     updateRegistry.push(clicker);
 
 }
@@ -69,13 +68,11 @@ function loadClickerValue() {
 
     if (typeof(clickerValue) !== "object"
         || typeof(clickerValue.property) !== "string"
-        || typeof(clickerValue.stat) !== "number"
-        || typeof(clickerValue.clickDelta) !== "number") {
+        || typeof(clickerValue.stat) !== "number") {
             clickerValue = {};
             clickerValue.property = "act";
             clickerValue.stat = 1;
             clickerValue.delta = 1 / 60;
-            clickerValue.clickDelta = 1;
         }
     
     console.log(clickerValue);
@@ -168,7 +165,7 @@ function createButton() {
 
     btn.on('pointerdown', () => {
         console.log(clicker);
-        
-        clicker.clickDelta += 1;
+
+        clicker.updateDelta(1);
     });
 }
