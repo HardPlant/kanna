@@ -7,13 +7,18 @@ var currentActLabel;
 var frame = 0;
 
 MainGameScene.preload = function () {
-    this.load.image("asset/button")
+    this.load.image(); 
+    this.load.image("mill_button", "asset/button.png");
 }
 
 MainGameScene.create = function () {
     initClicker();
 
     drawActLabel.call(this);
+
+    this.input.on('pointerdown', function(pointer) {
+        clicker.click();
+    });
 }
 
 MainGameScene.update = function() {
@@ -59,20 +64,11 @@ function drawActLabel() {
 function initClicker() {
     kanna = kanna();
     var clickerValue = loadClickerValue();
-    var property;
-    var delta;
-    var clickDelta;
+    kanna[clickerValue.property] = clickerValue[clickerValue.property];
 
-    if (clickerValue && clickerValue.act !== null) {
-        kanna.act = clickerValue.stat;
-        property = clickerValue.property;
-        delta = clickerValue.delta;
-        updateDelta = clickerValue.updateDelta;
-    } else {
-        property = "act";
-        delta = 1 / 60;
-        clickDelta = 1;
-    }
+    var property = clickerValue.property;
+    var delta  = clickerValue.delta;
+    var clickDelta = clickerValue.clickDelta;
 
     clicker = clicker.clicker(kanna, property, delta, clickDelta);
     updateRegistry.push(clicker);
@@ -80,7 +76,22 @@ function initClicker() {
 }
 
 function loadClickerValue() {
-    return JSON.parse(localStorage.getItem('stats'));
+    var clickerValue = JSON.parse(localStorage.getItem('stats'));
+
+    if (typeof(clickerValue) !== "object"
+        || typeof(clickerValue.property) !== "string"
+        || typeof(clickerValue.act) !== "number"
+        || typeof(clickerValue.clickDelta) !== "number") {
+            clickerValue = {};
+            clickerValue.property = "act";
+            clickerValue[clickerValue.property] = 1;
+            clickerValue.delta = 1 / 60;
+            clickerValue.clickDelta = 1;
+        }
+    
+    console.log(clickerValue);
+
+    return clickerValue;
 }
 
 function saveClickerValue(clicker) {
@@ -88,7 +99,7 @@ function saveClickerValue(clicker) {
         stat: clicker.getCurrentStat(),
         property: clicker.property,
         delta: clicker.delta,
-        updateDelta: clicker.updateDelta
+        clickDelta: clicker.clickDelta
     }));
 }
 
