@@ -7,12 +7,11 @@ var currentActLabel;
 var frame = 0;
 
 MainGameScene.preload = function () {
-    kanna = kanna();
-    clicker = clicker.clicker(kanna, "act", 1, 1 * 60);
-    updateRegistry.push(clicker);
 }
 
 MainGameScene.create = function () {
+    initClicker();
+
     drawActLabel.call(this);
 }
 
@@ -24,6 +23,7 @@ MainGameScene.update = function() {
 
     if (frame % 10 === 0) {
         updateActLabel.call(this);
+        saveClickerValue(clicker);
     }
 
     updateRegistry.forEach(function(item) {
@@ -35,9 +35,9 @@ MainGameScene.update = function() {
 
 function drawActLabel() {
     totalActLabel = this.make.text({
-        x: this.cameras.main.width * 0.2,
-        y: this.cameras.main.height * 0.8,
-        text: "현재 연기력: " + clicker.getCurrentStat(),
+        x: this.cameras.main.width * 0.1,
+        y: this.cameras.main.height * 0.85,
+        text: "현재 연기력: ",
         style: {
             fontSize: "24px",
             fill: "#ffffff"
@@ -45,9 +45,9 @@ function drawActLabel() {
     });
     
     currentActLabel = this.make.text({
-        x: this.cameras.main.width * 0.2,
+        x: this.cameras.main.width * 0.1,
         y: this.cameras.main.height * 0.9,
-        text: "초당 연기력:" + clicker.delta,
+        text: "초당 연기력:",
         style: {
             fontSize: "24px",
             fill: "#ffffff"
@@ -55,9 +55,43 @@ function drawActLabel() {
     });
 }
 
-function updateActLabel() {
-    totalActLabel.setText("현재 연기력: " + clicker.getCurrentStat());
-    currentActLabel.setText("초당 연기력:" + clicker.delta);
+function initClicker() {
+    kanna = kanna();
+    var clickerValue = loadClickerValue();
+    var property;
+    var delta;
+    var clickDelta;
+
+    if (clickerValue && clickerValue.act !== null) {
+        kanna.act = clickerValue.stat;
+        property = clickerValue.property;
+        delta = clickerValue.delta;
+        updateDelta = clickerValue.updateDelta;
+    } else {
+        property = "act";
+        delta = 1 / 60;
+        clickDelta = 1;
+    }
+
+    clicker = clicker.clicker(kanna, property, delta, clickDelta);
+    updateRegistry.push(clicker);
+
 }
 
+function loadClickerValue() {
+    return JSON.parse(localStorage.getItem('stats'));
+}
 
+function saveClickerValue(clicker) {
+    localStorage.setItem('stats', JSON.stringify({
+        stat: clicker.getCurrentStat(),
+        property: clicker.property,
+        delta: clicker.delta,
+        updateDelta: clicker.updateDelta
+    }));
+}
+
+function updateActLabel() {
+    totalActLabel.setText("현재 연기력: " + Number(clicker.getCurrentStat()).toFixed(2));
+    currentActLabel.setText("초당 연기력: " + Number(clicker.delta * 60).toFixed(2));
+}
