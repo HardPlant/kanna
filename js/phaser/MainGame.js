@@ -91,7 +91,22 @@ function updateActLabel() {
 
 function drawUI() {
     drawActLabel.call(this);
-    createButton.call(this);
+    createButton.call(this,
+        this.cameras.main.width * 0.85,
+        this.cameras.main.height * 0.85,
+        "업그레이드",
+        () => {
+            clicker.updateDelta(0.001);
+        });
+        
+    createButton.call(this
+        , this.cameras.main.width * 0.85
+        , this.cameras.main.height * 0.9
+        , "mill_button"
+        , () => {
+            clicker.character[clicker.property] = 1;
+            clicker.delta = 0.001;
+        });
 }
 
 function drawActLabel() {
@@ -138,52 +153,23 @@ function drawRandomNote(x, y) {
     });
 }
 
-function createButton() {
-    var update_delta_btn = this.add.sprite(
-        this.cameras.main.width * 0.85
-        , this.cameras.main.height * 0.85
-        , "mill_button");
+function createButton(x, y, text, callback) {
+    var btn = this.add.sprite(x, y, "mill_button");
 
-    update_delta_btn.text = this.make.text({
-        x: update_delta_btn.x,
-        y: update_delta_btn.y,
-        text: "업그레이드",
+    btn.text = this.make.text({
+        x: btn.x,
+        y: btn.y,
+        text: text,
         style: {
             fontSize: "2em",
             fill: "#000"
         }
     });
 
-    update_delta_btn.text.setOrigin(0.5, 0.5);
+    btn.text.setOrigin(0.5, 0.5);
 
-    update_delta_btn.setInteractive();
+    btn.setInteractive();
 
-    update_delta_btn.on('pointerdown', () => {
-        clicker.updateDelta(0.001);
-    });
-    
-
-    var reset_btn = this.add.sprite(
-        this.cameras.main.width * 0.85
-        , this.cameras.main.height * 0.9
-        , "mill_button");
-
-    reset_btn.text = this.make.text({
-        x: reset_btn.x,
-        y: reset_btn.y,
-        text: "초기화",
-        style: {
-            fontSize: "2em",
-            fill: "#000"
-        }
-    });
-
-    reset_btn.text.setOrigin(0.5, 0.5);
-
-    reset_btn.setInteractive();
-
-    reset_btn.on('pointerdown', () => {
-        clicker.character[clicker.property] = 1;
-        clicker.delta = 0.001;
-    });
+    btn.on('pointerdown', callback);
 }
+
