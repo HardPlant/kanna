@@ -96,15 +96,15 @@ function updateActLabel() {
 
 function drawUI() {
     drawActLabel.call(this);
-    createButton.call(this,
-        this.cameras.main.width * 0.85,
-        this.cameras.main.height * 0.85,
-        "업그레이드",
-        () => {
+    var upgradeBtn = createButton.call(this
+        , this.cameras.main.width * 0.85
+        , this.cameras.main.height * 0.85
+        , "업그레이드"
+         ,() => {
             clicker.updateDelta(0.001);
         });
 
-    createButton.call(this
+    var resetBtn = createButton.call(this
         , this.cameras.main.width * 0.85
         , this.cameras.main.height * 0.9
         , "초기화"
