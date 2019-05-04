@@ -144,28 +144,51 @@ function drawRandomNote(x, y) {
 }
 
 function createButton() {
-    var btn = this.add.sprite(
-        this.cameras.main.width * 0.9
-        , this.cameras.main.height * 0.9
+    var update_delta_btn = this.add.sprite(
+        this.cameras.main.width * 0.85
+        , this.cameras.main.height * 0.85
         , "mill_button");
 
-    var text = this.make.text({
-        x: btn.x,
-        y: btn.y,
-        text: "클릭",
+    update_delta_btn.text = this.make.text({
+        x: update_delta_btn.x,
+        y: update_delta_btn.y,
+        text: "업그레이드",
         style: {
             fontSize: "2em",
             fill: "#000"
         }
     });
 
-    text.setOrigin(0.5, 0.5);
+    update_delta_btn.text.setOrigin(0.5, 0.5);
 
-    btn.setInteractive();
+    update_delta_btn.setInteractive();
 
-    btn.on('pointerdown', () => {
-        console.log(clicker);
+    update_delta_btn.on('pointerdown', () => {
+        clicker.updateDelta(0.001);
+    });
+    
 
-        clicker.updateDelta(1);
+    var reset_btn = this.add.sprite(
+        this.cameras.main.width * 0.85
+        , this.cameras.main.height * 0.9
+        , "mill_button");
+
+    reset_btn.text = this.make.text({
+        x: reset_btn.x,
+        y: reset_btn.y,
+        text: "초기화",
+        style: {
+            fontSize: "2em",
+            fill: "#000"
+        }
+    });
+
+    reset_btn.text.setOrigin(0.5, 0.5);
+
+    reset_btn.setInteractive();
+
+    reset_btn.on('pointerdown', () => {
+        clicker.character[clicker.property] = 1;
+        clicker.delta = 0.001;
     });
 }
