@@ -8,6 +8,11 @@ var frame = 0;
 var scene;
 
 MainGameScene.preload = function () {
+    this.load.image("bg_space", "assets/bg_space.jpeg"); 
+    this.load.image("mill_button", "assets/m_button.png");
+    this.load.image("music_note_1", "assets/music_note_1.png");
+    this.load.image("music_note_2", "assets/music_note_2.jpg");
+    this.load.image("music_note_3", "assets/music_note_3.jpeg");
 }
 
 MainGameScene.create = function () {
@@ -98,7 +103,7 @@ function drawUI() {
         () => {
             clicker.updateDelta(0.001);
         });
-        
+
     createButton.call(this
         , this.cameras.main.width * 0.85
         , this.cameras.main.height * 0.9
