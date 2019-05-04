@@ -8,7 +8,7 @@ var config = {
             gravity: { y: 200 }
         },
     },
-    scene: [Preload, BootScene, MainGameScene]
+    scene: [Preload, BootScene, MainGameScene, DialogScene]
 };
 
 var game = new Phaser.Game(config);
