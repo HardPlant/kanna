@@ -7,6 +7,7 @@ var currentActLabel;
 var frame = 0;
 
 MainGameScene.preload = function () {
+    this.load.image("asset/button")
 }
 
 MainGameScene.create = function () {
