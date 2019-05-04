@@ -107,7 +107,7 @@ function drawUI() {
     createButton.call(this
         , this.cameras.main.width * 0.85
         , this.cameras.main.height * 0.9
-        , "mill_button"
+        , "초기화"
         , () => {
             clicker.character[clicker.property] = 1;
             clicker.delta = 0.001;
@@ -176,5 +176,7 @@ function createButton(x, y, text, callback) {
     btn.setInteractive();
 
     btn.on('pointerdown', callback);
+
+    return btn;
 }
 
