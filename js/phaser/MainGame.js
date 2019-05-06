@@ -120,10 +120,10 @@ function drawUI() {
         , () => {
             scene.scene.pause();
             scene.scene.setVisible(false);
-            
+
             scene.scene.launch("Dialog", {
                 calledFrom: "MainGame",
-                dialogId: "A001"
+                dialogId: "A003"
             });
         });
 }

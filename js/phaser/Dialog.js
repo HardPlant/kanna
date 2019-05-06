@@ -34,7 +34,11 @@ DialogScene.create = function() {
     getNextDialog();
 
     this.input.on('pointerdown', function(pointer) {
-        getNextDialog();
+        if (isUpdating) {
+            updateImmediatly();
+        } else {
+            getNextDialog();
+        }
     });
 };
 
@@ -71,14 +75,6 @@ function createButton(x, y, text, callback) {
 }
 
 function drawUILabel() {
-    var dialogBtn = createButton.call(this
-        , this.cameras.main.width * 0.85
-        , this.cameras.main.height * 0.95
-        , "복귀"
-        , () => {
-            closeDialog.call(dialogScene);
-        });
-
     nameLabel = this.make.text({
         x: this.cameras.main.width * 0.1,
         y: this.cameras.main.height * 0.6,
@@ -101,8 +97,10 @@ function drawUILabel() {
 }
 
 function getNextDialog() {
-    if (typeof(reader) === "undefined" || !reader.isNextDialogPresent()) {
+    if (typeof(reader) === "undefined")
         return;
+    if(!reader.isNextDialogPresent()) {
+        closeDialog.call(dialogScene);
     }
 
     var data = reader.getNextDialog();
@@ -124,6 +122,7 @@ function updateDialog() {
 var sequence;
 var currentSeq;
 var currentText;
+var isUpdating;
 
 function updateDialogSequential(phaserText) {
     sequence = text.split("");
@@ -131,15 +130,27 @@ function updateDialogSequential(phaserText) {
     currentText = "";
 
     update();
+    isUpdating = true;
 
     function update() {
         if (sequence[currentSeq]){
             currentText += sequence[currentSeq++];
+        } else {
+            isUpdating = false;
         }
+
         phaserText.setText(currentText);
 
         if (currentText.length < sequence.length) {
-            setTimeout(update, 100);
+            updateTimeout = setTimeout(update, 100);
         }
     }
+}
+
+function updateImmediatly() {
+    if (updateTimeout) {
+        clearTimeout(updateTimeout);
+    }
+    isUpdating = false;
+    dialogLabel.setText(text);
 }
