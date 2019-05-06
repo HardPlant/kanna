@@ -1,6 +1,7 @@
 function textreader(id) {
     var context;
     var sequence = 0;
+    console.log("TextReader loaded with:" + id);
 
     return {
         preload: function() {

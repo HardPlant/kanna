@@ -3,6 +3,12 @@ var DialogScene = new Phaser.Scene("Dialog");
 var sceneCalledFrom;
 var dialogScene;
 var dialog_param;
+var reader;
+
+var image;
+var name;
+var text;
+var effect;
 
 DialogScene.init = function(data) {
     console.log(data);
@@ -10,11 +16,13 @@ DialogScene.init = function(data) {
 }
 
 DialogScene.preload = function() {
-
+    reader = textreader.call(this, data.id);
+    reader.preload.call(this);
 };
 
 DialogScene.create = function() {
     dialogScene = this;
+    reader.create.call(this);
 
     var dialogBtn = createButton.call(this
         , this.cameras.main.width * 0.85
