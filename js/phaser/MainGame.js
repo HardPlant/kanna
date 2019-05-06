@@ -5,7 +5,6 @@ var kanna;
 var totalActLabel;
 var currentActLabel;
 var frame = 0;
-var scene;
 
 MainGameScene.preload = function () {
     this.load.image("bg_space", "assets/bg_space.jpeg"); 
@@ -16,8 +15,6 @@ MainGameScene.preload = function () {
 }
 
 MainGameScene.create = function () {
-    scene = this;
-
     this.bg = this.add.image(0, 0, "bg_space");
     this.bg.setDisplaySize(this.cameras.main.width, this.cameras.main.height);
 
@@ -28,7 +25,7 @@ MainGameScene.create = function () {
     this.input.on('pointerdown', function(pointer) {
         clicker.click();
 
-        drawRandomNote.call(scene, pointer.downX, pointer.downY);
+        drawRandomNote.call(MainGameScene, pointer.downX, pointer.downY);
     });
 }
 
@@ -118,10 +115,10 @@ function drawUI() {
         , this.cameras.main.height * 0.95
         , "대화 생성"
         , () => {
-            scene.scene.pause();
-            scene.scene.setVisible(false);
+            MainGameScene.scene.pause();
+            MainGameScene.scene.setVisible(false);
 
-            scene.scene.launch("Dialog", {
+            MainGameScene.scene.launch("Dialog", {
                 calledFrom: "MainGame",
                 dialogId: "A003"
             });
