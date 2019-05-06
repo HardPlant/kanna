@@ -112,6 +112,18 @@ function drawUI() {
             clicker.character[clicker.property] = 1;
             clicker.delta = 0.001;
         });
+
+    var dialogBtn = createButton.call(this
+        , this.cameras.main.width * 0.85
+        , this.cameras.main.height * 0.95
+        , "대화 생성"
+        , () => {
+            scene.scene.sleep();
+            scene.scene.start("Dialog", {
+                calledFrom: "MainGame",
+                dialogId: "A001"
+            });
+        });
 }
 
 function drawActLabel() {
@@ -120,7 +132,7 @@ function drawActLabel() {
         y: this.cameras.main.height * 0.85,
         text: "현재 연기력: ",
         style: {
-            fontSize: "2em",
+            font: "2em Sunflower",
             fill: "#ffffff"
         }
     });
@@ -130,7 +142,7 @@ function drawActLabel() {
         y: this.cameras.main.height * 0.9,
         text: "초당 연기력:",
         style: {
-            fontSize: "2em",
+            font: "2em Do Hyeon",
             fill: "#ffffff"
         }
     });
