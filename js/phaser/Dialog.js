@@ -1,5 +1,3 @@
-import { isContext } from "vm";
-
 var DialogScene = new Phaser.Scene("Dialog");
 
 var sceneCalledFrom;
@@ -18,10 +16,10 @@ var dialogLabel;
 DialogScene.init = function(data) {
     console.log(data);
     dialogParam = data;
+    reader = textreader.call(this, data.dialogId);
 }
 
 DialogScene.preload = function() {
-    reader = textreader.call(this, data.id);
     reader.preload.call(this);
 };
 
@@ -127,7 +125,7 @@ function updateDialogSequential(phaserText) {
         phaserText.setText(currentText);
 
         if (currentText.length != sequence.length) {
-            setTimeout(update, 200);
+            setTimeout(update, 100);
         }
     }
 }
