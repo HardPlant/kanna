@@ -1,7 +1,6 @@
 var DialogScene = new Phaser.Scene("Dialog");
 
 var sceneCalledFrom;
-var dialogScene;
 var dialogParam;
 var reader;
 
@@ -26,7 +25,6 @@ DialogScene.preload = function() {
 };
 
 DialogScene.create = function() {
-    dialogScene = this;
     reader.create.call(this);
 
     drawUILabel.call(this);
@@ -100,7 +98,8 @@ function getNextDialog() {
     if (typeof(reader) === "undefined")
         return;
     if(!reader.isNextDialogPresent()) {
-        closeDialog.call(dialogScene);
+        closeDialog.call(DialogScene);
+        return;
     }
 
     var data = reader.getNextDialog();
