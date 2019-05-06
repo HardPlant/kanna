@@ -2,7 +2,7 @@ var DialogScene = new Phaser.Scene("Dialog");
 
 var sceneCalledFrom;
 var dialogScene;
-var dialog_param;
+var dialogParam;
 var reader;
 
 var image;
@@ -16,6 +16,8 @@ var dialogLabel;
 DialogScene.init = function(data) {
     console.log(data);
     dialogParam = data;
+    sceneCalledFrom = data.calledFrom;
+
     reader = textreader.call(this, data.dialogId);
 }
 
@@ -30,6 +32,10 @@ DialogScene.create = function() {
     drawUILabel.call(this);
 
     getNextDialog();
+
+    this.input.on('pointerdown', function(pointer) {
+        getNextDialog();
+    });
 };
 
 DialogScene.update = function() {
@@ -37,8 +43,9 @@ DialogScene.update = function() {
 };
 
 function closeDialog() {
-    this.scene.stop(dialogScene.Name);
     this.scene.resume(sceneCalledFrom);
+    this.scene.setVisible(true, sceneCalledFrom);
+    this.scene.stop();
 }
 
 function createButton(x, y, text, callback) {
@@ -104,27 +111,34 @@ function getNextDialog() {
     name = data.Name;
     text = data.Dialog;
 
+    updateDialog();    
+}
+
+
+function updateDialog() {
+    nameLabel.setText(name)
+    dialogLabel.setText("");
     updateDialogSequential(dialogLabel);
 }
 
-var currentTimeout;
+var sequence;
+var currentSeq;
+var currentText;
 
 function updateDialogSequential(phaserText) {
-    var sequence = text.split("");
-    var currentSeq = 0;
-    var currentText = "";
-
-    if (typeof(currentTimeout) !== "undefined") {
-        clearTimeout(currentTimeout);
-    }
+    sequence = text.split("");
+    currentSeq = 0;
+    currentText = "";
 
     update();
 
     function update() {
-        currentText += sequence[currentSeq++];
+        if (sequence[currentSeq]){
+            currentText += sequence[currentSeq++];
+        }
         phaserText.setText(currentText);
 
-        if (currentText.length != sequence.length) {
+        if (currentText.length < sequence.length) {
             setTimeout(update, 100);
         }
     }

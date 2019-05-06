@@ -118,8 +118,10 @@ function drawUI() {
         , this.cameras.main.height * 0.95
         , "대화 생성"
         , () => {
-            scene.scene.sleep();
-            scene.scene.start("Dialog", {
+            scene.scene.pause();
+            scene.scene.setVisible(false);
+            
+            scene.scene.launch("Dialog", {
                 calledFrom: "MainGame",
                 dialogId: "A001"
             });
