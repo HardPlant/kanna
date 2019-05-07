@@ -37,7 +37,7 @@ Given('클리커가 주어진다', function () {
 When('클리커에 카나 캐릭터를 적용하고', function () {
     assert(kannaData["act"]);
 
-    clicker = clickerFn.clicker(kannaData, "act", 1, 3);
+    clicker = clickerFn.clicker(kannaData, "act", 1);
     assert(clicker);
 
     assert.equal(clicker.character, kannaData);
@@ -61,7 +61,7 @@ When('3프레임이 지나면', function () {
 Then('연기력 스탯이 클릭 델타만큼 상승한다', function () {
     afterStat = clicker.getCurrentStat();
 
-    assert.equal((beforeStat + clicker.clickDelta), afterStat);
+    assert.equal((beforeStat + clicker.getClickDelta()), afterStat);
 });
 
 

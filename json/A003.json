@@ -1,1 +1,1 @@
-{"0":{"Image":"/","Name":"Kanna","Dialog":"Hello, Mirai!"},"1":{"Image":"/","Name":"Mirai","Dialog":"Hello, Kanna!"},"2":{"Image":"/","Name":"Kanna","Dialog":"I like to play!"},"3":{"Image":"/","Name":"Mirai","Dialog":"Me, too!"}}
+{"0":{"Image":"assets/kanna/normal.png","Name":"Kanna","Dialog":"Hello, Mirai!"},"1":{"Image":"assets/mirai/normal.png","Name":"Mirai","Dialog":"Hello, Kanna!"},"2":{"Image":"assets/kanna/normal.png","Name":"Kanna","Dialog":"I like to play!"},"3":{"Image":"assets/mirai/normal.png","Name":"Mirai","Dialog":"Me, too!"}}

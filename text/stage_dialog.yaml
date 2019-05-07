@@ -1,0 +1,145 @@
+##### Idol Declarations
+
+Title: &Title
+  type: title
+
+Monolog: &Monolog
+  name: P
+  image: assets/kanna/normal.png
+
+Kanna_Normal: &Kanna_Normal
+  name: 카나
+  image: assets/kanna/normal.png
+
+Shiho_Normal: &Shiho_Normal
+  name: 시호
+  image: assets/shiho/normal.png
+
+Mirai_Normal: &Mirai_Normal
+  name: 미라이
+  image: assets/mirai/normal.png
+
+Minako_Normal: &Minako_Normal
+  name: 미나코
+  image: assets/minako/normal.png
+
+Hibiki_Normal: &Hibiki_Normal
+  name: 히비키
+  image: assets/hibiki/normal.png
+
+Serika_Normal: &Serika_Normal
+  name: 히비키
+  image: assets/serika/normal.png
+
+JoyRotas_Normal: &JoyRotas_Normal
+  name: 조이 로타스
+  image: assets/joyrotas/normal.png
+
+Takagi_Normal: &Takagi_Normal
+  name: 타카기
+  image: assets/takagi/normal.png
+
+Kotori_Normal: &Kotori_Normal
+  name: 타카기
+  image: assets/kotori/normal.png
+
+##### Script
+
+Intro:
+  0: 
+    <<: *Title
+    dialog: 영화 데뷔~♪ 
+  1:
+    <<: *Monolog
+    dialog: 
+  2:
+  3:
+
+Stage1:
+  0:
+    <<: *Title
+    dialog: 외계인 침공! 조금 무서울카나~♪
+  1:
+    <<: *Monolog
+    dialog: 서기 2xxx년
+    background: asset/background/space_1.png
+  2:
+    <<: *Monolog
+    dialog: 모치즈키 박사의 초광속 항해 연구가 결실을 맺어, 인류는 머나먼 우주에 발을 들일 수 있게 되었다.
+  3:
+    <<: *Monolog
+    dialog: 모치즈키 박사의 초광속 항해 연구가 결실을 맺어, 인류는 머나먼 우주에 발을 들일 수 있게 되었다.
+
+Stage1_lesson:
+  01:
+    <<: *Serika_Normal
+    dialog: 
+
+Stage2:
+  0:
+    <<: *Title
+    dialog: 외계인 침공!
+  1:
+    <<: *Kanna_Normal
+    dialog: 
+  2:
+    <<: *Kanna_Normal
+    dialog: 
+  3:
+    <<: *Kanna_Normal
+    dialog: 
+  4:
+    <<: *Kanna_Normal
+    dialog: 
+
+Stage3:
+  0:
+    <<: *Title
+    dialog: 외계인 침공!
+  1:
+    <<: *Kanna_Normal
+    dialog: 
+  2:
+    <<: *Kanna_Normal
+    dialog: 
+  3:
+    <<: *Kanna_Normal
+    dialog: 
+  4:
+    <<: *Kanna_Normal
+    dialog: 
+
+Stage4:
+  0:
+    <<: *Title
+    dialog: 
+  1:
+    <<: *Kanna_Normal
+    dialog: 
+  2:
+    <<: *Kanna_Normal
+    dialog: 
+  3:
+    <<: *Kanna_Normal
+    dialog: 
+  4:
+    <<: *Kanna_Normal
+    dialog: 
+
+Epilog:
+  0:
+    <<: *Title
+    dialog: 
+  1:
+    <<: *Kanna_Normal
+    dialog: 
+  2:
+    <<: *Kanna_Normal
+    dialog: 
+  3:
+    <<: *Kanna_Normal
+    dialog: 
+  4:
+    <<: *Kanna_Normal
+    dialog: 
+  

@@ -1,37 +1,45 @@
+
+Kanna_Normal: &Kanna_Normal
+  Image: assets/kanna/normal.png
+
+Mirai_Normal: &Mirai_Normal
+  Image: assets/mirai/normal.png
+
 A001:
   0: 
-    Image: "/"
-    Name: "Kanna"
-    Dialog: "I like to eat!"
+    Image: /
+    Name: Kanna
+    Dialog: I like to eat!
   1:
-    Image: "/"
-    Name: "Mirai"
-    Dialog: "Oh, Seriously?"
+    Image: /
+    Name: Mirai
+    Dialog: Oh, Seriously?
 
 A002:
   0:
-    Image: "/"
-    Name: "Kanna"
-    Dialog: "I like to play!"
+    Image: /
+    Name: Kanna
+    Dialog: I like to play!
   1:
-    Image: "/"
-    Name: "Mirai"
-    Dialog: "Me, too!"
+    Image: /
+    Name: Mirai
+    Dialog: Me, too!
 
 A003:
-  0:
-    Image: "/"
-    Name: "Kanna"
-    Dialog: "Hello, Mirai!"
+  0: 
+    <<: *Kanna_Normal
+    Name: Kanna
+    Dialog: Hello, Mirai!
   1:
-    Image: "/"
-    Name: "Mirai"
-    Dialog: "Hello, Kanna!"
+    <<: *Mirai_Normal
+    Name: Mirai
+    Dialog: Hello, Kanna!
   2:
-    Image: "/"
-    Name: "Kanna"
-    Dialog: "I like to play!"
+    <<: *Kanna_Normal
+    Name: Kanna
+    Dialog: I like to play!
   3:
-    Image: "/"
-    Name: "Mirai"
-    Dialog: "Me, too!"
+    <<: *Mirai_Normal
+    Name: Mirai
+    Dialog: Me, too!
+

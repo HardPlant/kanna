@@ -4,6 +4,7 @@
   "description": "kanna game",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "cucumber-js"
   },
   "author": "",
